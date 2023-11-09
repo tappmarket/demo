@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, computed } from 'vue';
 import { ElImage } from 'element-plus';
 
 defineOptions({
@@ -34,8 +34,16 @@ let productList2 = [
 productList = formatData(productList);
 productList2 = formatData(productList2);
 
+const previewImg = ref('');
 // 产品图片预览
 const previewList = [...productList, ...productList2].map((item) => item.img);
+const previewIndex = computed(() => {
+  const index = previewList.findIndex((item) => item === previewImg.value);
+  return index === -1 ? 0 : index;
+});
+function onPreview(img) {
+  previewImg.value = img;
+}
 
 // 商店图片
 let storeImgs = ['store1.png', 'store2.png', 'store3.png'];
@@ -133,7 +141,9 @@ const addrList = [
                     loading="lazy"
                     :src="product.img"
                     :alt="product.alt"
+                    :initial-index="previewIndex"
                     :preview-src-list="previewList"
+                    @show="onPreview(product.img)"
                   ></el-image>
                 </li>
               </ul>
@@ -145,7 +155,9 @@ const addrList = [
                     loading="lazy"
                     :src="product.img"
                     :alt="product.alt"
+                    :initial-index="previewIndex"
                     :preview-src-list="previewList"
+                    @show="onPreview(product.img)"
                   ></el-image>
                 </li>
               </ul>
