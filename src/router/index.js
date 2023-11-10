@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
-import HomePage from '@/views/home.vue';
+import HomePage from '@/views/home/index.vue';
 
 const routes = [
   { path: '/', component: HomePage },
@@ -8,15 +8,18 @@ const routes = [
   { path: '/enquiry', component: HomePage },
   {
     path: '/enquiry/franceise',
-    component: () => import('@/views/enquiry.vue')
+    component: () => import('@/views/enquiry/index.vue'),
+    meta: { name: 'franceise' }
   },
   {
     path: '/enquiry/customer',
-    component: () => import('@/views/enquiry.vue')
+    component: () => import('@/views/enquiry/index.vue'),
+    meta: { name: 'customer' }
   },
   {
     path: '/enquiry/join',
-    component: () => import('@/views/enquiry.vue')
+    component: () => import('@/views/enquiry/index.vue'),
+    meta: { name: 'join' }
   },
 
   { path: '/:pathMatch(.*)*', redirect: '/' }

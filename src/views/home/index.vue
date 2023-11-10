@@ -1,19 +1,13 @@
 <script setup>
-import { ref, onMounted, computed } from 'vue';
+import { ref, computed } from 'vue';
 import { ElImage } from 'element-plus';
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import { Navigation } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
 
 defineOptions({
   name: 'HomePage'
-});
-
-onMounted(() => {
-  new Swiper('.swiper', {
-    // 前进后退按钮
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev'
-    }
-  });
 });
 
 // 产品图片
@@ -55,19 +49,22 @@ let enquiryList = [
     title: 'Two Peck Crispy Chicken (Australia)',
     subTitle: 'Franchise Employee Helpline',
     desc: `If you have any questions or concerns regarding employment or wage payment practices at a Two Peck Crispy Chicken store`,
-    img: 'img1.jpg'
+    img: 'img1.jpg',
+    to: '/enquiry/franceise'
   },
   {
     title: 'Customer',
     subTitle: 'Service Helpline',
     desc: `If you have any questions or concerns regarding Two Peck Crispy Chicken (Australia) Franchise Store's products and`,
-    img: 'img4.jpg'
+    img: 'img4.jpg',
+    to: '/enquiry/customer'
   },
   {
     title: 'Join The Two Peck Crispy',
     subTitle: 'Chicken (Australia) Family',
     desc: `If you have any questions about join the Two Peck Crispy Chicken store`,
-    img: 'img3.jpg'
+    img: 'img3.jpg',
+    to: '/enquiry/join'
   }
 ];
 enquiryList = formatData(enquiryList);
@@ -78,11 +75,11 @@ function formatData(list) {
     if (typeof item === 'string') {
       _item = { img: item };
     } else {
-      _item = item;
+      _item = { ...item };
     }
     return {
       ..._item,
-      img: new URL(`../assets/image/${_item.img}`, import.meta.url).href,
+      img: new URL(`../../assets/image/${_item.img}`, import.meta.url).href,
       alt: _item.img
     };
   });
@@ -129,46 +126,41 @@ const addrList = [
     <!-- products -->
     <div id="products" class="products">
       <div class="title">PRODUCTS</div>
-      <div class="swiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide" v-for="item in 2" :key="item">
-            <div class="product-list__wrap">
-              <ul class="product-list">
-                <li class="item" v-for="product in productList" :key="product.alt">
-                  <el-image
-                    preview-teleported
-                    hide-on-click-modal
-                    loading="lazy"
-                    :src="product.img"
-                    :alt="product.alt"
-                    :initial-index="previewIndex"
-                    :preview-src-list="previewList"
-                    @show="onPreview(product.img)"
-                  ></el-image>
-                </li>
-              </ul>
-              <ul class="product-list2">
-                <li class="item" v-for="product in productList2" :key="product.alt">
-                  <el-image
-                    preview-teleported
-                    hide-on-click-modal
-                    loading="lazy"
-                    :src="product.img"
-                    :alt="product.alt"
-                    :initial-index="previewIndex"
-                    :preview-src-list="previewList"
-                    @show="onPreview(product.img)"
-                  ></el-image>
-                </li>
-              </ul>
-            </div>
+      <!-- <div class="swiper"> -->
+      <swiper :modules="[Navigation]" navigation>
+        <swiper-slide class="swiper-slide" v-for="item in 2" :key="item">
+          <div class="product-list__wrap">
+            <ul class="product-list">
+              <li class="item" v-for="product in productList" :key="product.alt">
+                <el-image
+                  preview-teleported
+                  hide-on-click-modal
+                  loading="lazy"
+                  :src="product.img"
+                  :alt="product.alt"
+                  :initial-index="previewIndex"
+                  :preview-src-list="previewList"
+                  @show="onPreview(product.img)"
+                ></el-image>
+              </li>
+            </ul>
+            <ul class="product-list2">
+              <li class="item" v-for="product in productList2" :key="product.alt">
+                <el-image
+                  preview-teleported
+                  hide-on-click-modal
+                  loading="lazy"
+                  :src="product.img"
+                  :alt="product.alt"
+                  :initial-index="previewIndex"
+                  :preview-src-list="previewList"
+                  @show="onPreview(product.img)"
+                ></el-image>
+              </li>
+            </ul>
           </div>
-        </div>
-
-        <!-- 导航按钮 -->
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
-      </div>
+        </swiper-slide>
+      </swiper>
     </div>
 
     <!-- about us -->
@@ -255,7 +247,7 @@ const addrList = [
                 <div class="item-sub-title">{{ item.subTitle }}</div>
                 <div class="item-desc">{{ item.desc }}</div>
               </div>
-              <router-link to="/enquiry/franceise" custom v-slot="{ navigate }">
+              <router-link :to="item.to" custom v-slot="{ navigate }">
                 <button type="button" class="btn-enquiey" @click="navigate">Enquiey</button>
               </router-link>
             </div>
@@ -296,8 +288,8 @@ const addrList = [
     .swiper {
       width: 100%;
 
-      .swiper-button-next.swiper-button-disabled,
-      .swiper-button-prev.swiper-button-disabled {
+      :deep(.swiper-button-prev.swiper-button-disabled),
+      :deep(.swiper-button-next.swiper-button-disabled) {
         opacity: 0;
       }
 
