@@ -80,4 +80,4 @@ function onSubmit() {
   </form>
 </template>
 
-<style src="./style.scss" scoped></style>
+<style src="./style.scss"></style>
