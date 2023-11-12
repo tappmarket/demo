@@ -208,38 +208,44 @@ const addrList = [
     <!-- stores -->
     <div id="stores" class="stores">
       <div class="title">STORES</div>
-      <div class="store-img">
-        <ul class="store-img__inner">
-          <li class="item" v-for="item in storeImgs" :key="item.alt">
-            <img :src="item.img" :alt="item.alt" loading="lazy" />
-          </li>
-        </ul>
-      </div>
-      <div class="state-layout">
-        <div class="state__inner">
-          <div class="state">STATE</div>
-          <ul class="list">
-            <li v-for="(state, index) in stateList" :key="state" @click="stateIndex = index">
-              <span>{{ state }}</span>
-              <i v-if="stateIndex === index" class="right-arrow"></i>
+      <div class="store__wrap">
+        <div class="store-img">
+          <ul class="store-img__inner">
+            <li class="item" v-for="item in storeImgs" :key="item.alt">
+              <img :src="item.img" :alt="item.alt" loading="lazy" />
             </li>
           </ul>
         </div>
-        <div class="state-right">
-          <ul>
-            <li v-for="addr in addrList[stateIndex]" :key="addr">{{ addr }}</li>
-          </ul>
+        <div class="state-layout">
+          <div class="state-left">
+            <div class="state-left__wrap">
+              <div class="state-left__inner">
+                <div class="state">STATE</div>
+                <ul class="list">
+                  <li v-for="(state, index) in stateList" :key="state" @click="stateIndex = index">
+                    <span>{{ state }}</span>
+                    <i v-if="stateIndex === index" class="right-arrow"></i>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="state-right">
+            <ul>
+              <li v-for="addr in addrList[stateIndex]" :key="addr">{{ addr }}</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- enquiry -->
     <div id="enquiry">
-      <div class="store-top-bg">
+      <div class="enquiry-top-bg">
         <div class="enquiry-title">Enquiry</div>
       </div>
-      <div class="store-list">
-        <ul class="store-list__inner">
+      <div class="enquiry-list">
+        <ul class="enquiry-list__inner">
           <li class="item" v-for="item in enquiryList" :key="item.title">
             <div class="item-left">
               <div class="txt">
@@ -257,7 +263,7 @@ const addrList = [
           </li>
         </ul>
       </div>
-      <div class="store-bottom-bg"></div>
+      <div class="enquiry-bottom-bg"></div>
     </div>
   </div>
 </template>
@@ -385,6 +391,7 @@ const addrList = [
       height: 96vw;
       margin: 0 auto;
       background: center / contain no-repeat url('@/assets/image/img2.jpg');
+      font-family: ArialRoundedMTBold;
 
       .left,
       .right {
@@ -396,8 +403,11 @@ const addrList = [
 
         .title {
           font-size: 2.4vw;
-          font-family: ArialRoundedMTBold;
           line-height: 3.6vw;
+
+          @include respond-to('phone') {
+            font-size: 3.2vw;
+          }
         }
         .paragraph {
           display: flex;
@@ -408,7 +418,8 @@ const addrList = [
           line-height: 2.13vw;
 
           @include respond-to('phone') {
-            line-height: unset;
+            font-size: 2.67vw;
+            line-height: 2.67vw;
           }
         }
       }
@@ -461,133 +472,194 @@ const addrList = [
       -webkit-text-stroke: 0 #000000;
     }
 
-    .store-img {
+    .store__wrap {
       position: relative;
-      display: flex;
+      margin-top: 24vw;
       z-index: 1;
 
       &::before {
         content: '';
         position: absolute;
-        width: 100%;
-        height: 52vw;
-        background: center / cover no-repeat url('@/assets/image/bg2.jpg');
-        transform: translateY(16vw);
-        z-index: -1;
-      }
-
-      .store-img__inner {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        padding: 0 8.8vw;
-      }
-
-      .item {
-        width: 24.53vw;
-        height: 24.53vw;
-
-        img {
-          width: 100%;
-        }
-      }
-    }
-
-    .state-layout {
-      position: relative;
-      display: flex;
-      align-items: center;
-      width: 46.93vw;
-      height: 29.33vw;
-      margin-top: 6vw;
-      perspective: 1000px;
-      z-index: 1;
-
-      &::before {
-        content: '';
-        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
         height: 100%;
-        background: #fff000;
-        border: 0.4vw solid #000000;
-        border-left: none;
-        transform-origin: center left;
-        transform: rotateY(16deg);
+        background: center no-repeat url('@/assets/image/bg2.jpg');
+        background-size: cover;
         z-index: -1;
       }
 
-      .state__inner {
-        width: calc(100% - 16vw);
-        margin-left: 8.8vw;
-
-        .state {
-          font-size: 2.4vw;
-          font-family: Copperplate;
-          line-height: 3.2vw;
-          -webkit-text-stroke: 0 #000000;
+      .store-img {
+        transform: translateY(-16vw);
+        .store-img__inner {
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          padding: 0 8.8vw;
         }
-        .list {
-          display: grid;
-          row-gap: 0.53vw;
-          margin-top: 1.87vw;
-          font-size: 1.6vw;
-          font-family: ArialRoundedMTBold;
-          line-height: 2.13vw;
 
-          @include respond-to('phone') {
-            row-gap: 1.6vw;
-          }
+        .item {
+          width: 24.53vw;
+          height: 24.53vw;
 
-          & li {
-            display: flex;
-            align-items: center;
-            column-gap: 1.07vw;
-            cursor: pointer;
-
-            &::before {
-              content: '';
-              display: block;
-              width: 0.8vw;
-              height: 0.8vw;
-              transform: translateY(-0.13vw);
-              border-radius: 50%;
-              background-color: #7ccac9;
-            }
-
-            .right-arrow {
-              width: 2.13vw;
-              height: 2.13vw;
-              background: center / cover no-repeat url('@/assets/image/right-arrow.png');
-              margin-left: auto;
-            }
+          img {
+            width: 100%;
           }
         }
       }
-      .state-right {
-        margin-left: 8vw;
 
-        & ul {
-          display: grid;
-          row-gap: 1.6vw;
-          width: 38vw;
+      .state-layout {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        transform: translateY(-8vw);
 
-          & li {
-            display: flex;
-            column-gap: 1.07vw;
-            font-size: 1.6vw;
-            font-family: ArialRoundedMTBold;
-            line-height: 1.73vw;
+        @include respond-to('phone') {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .state-left {
+          flex: 1;
+          perspective: 1000px;
+
+          @include respond-to('phone') {
+            width: 100%;
+          }
+
+          .state-left__wrap {
+            background: #fff000;
+            border: 0.4vw solid #000000;
+            border-left: none;
+            transform-origin: center left;
+            transform: rotateY(16deg);
+            perspective: 1000px;
 
             @include respond-to('phone') {
-              line-height: 3vw;
+              width: 100%;
             }
 
-            &::before {
-              content: '';
-              display: block;
-              width: 1.6vw;
-              height: 1.6vw;
-              background: center / cover no-repeat url('@/assets/image/location.png');
+            .state-left__inner {
+              width: 100%;
+              padding: 3.2vw 2.4vw 3.2vw 8.8vw;
+              transform-origin: center left;
+              transform: rotateY(-16deg);
+
+              @include respond-to('phone') {
+                padding-right: 4.8vw;
+              }
+
+              .state {
+                font-size: 3.07vw;
+                font-family: Copperplate;
+                line-height: 3.2vw;
+                -webkit-text-stroke: 0 #000000;
+
+                @include respond-to('phone') {
+                  font-size: 3.73vw;
+                }
+              }
+              .list {
+                display: grid;
+                row-gap: 1.6vw;
+                margin-top: 1.6vw;
+                font-size: 1.87vw;
+                font-family: ArialRoundedMTBold;
+                line-height: 2.13vw;
+
+                @include respond-to('phone') {
+                  font-size: 3.2vw;
+                  margin-top: 3.2vw;
+                  line-height: 4.27vw;
+                }
+
+                & li {
+                  display: flex;
+                  align-items: center;
+                  column-gap: 1.07vw;
+                  cursor: pointer;
+
+                  @include respond-to('phone') {
+                    column-gap: 2.13vw;
+                  }
+
+                  &::before {
+                    content: '';
+                    display: block;
+                    width: 0.8vw;
+                    height: 0.8vw;
+                    transform: translateY(-0.13vw);
+                    border-radius: 50%;
+                    background-color: #7ccac9;
+
+                    @include respond-to('phone') {
+                      width: 1.6vw;
+                      height: 1.6vw;
+                    }
+                  }
+
+                  .right-arrow {
+                    width: 2.13vw;
+                    height: 2.13vw;
+                    background: center / cover no-repeat url('@/assets/image/right-arrow.png');
+                    margin-left: auto;
+
+                    @include respond-to('phone') {
+                      width: 4.27vw;
+                      height: 4.27vw;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .state-right {
+          flex: 1;
+          margin-left: 4vw;
+
+          @include respond-to('phone') {
+            width: calc(100% - 7.6vw);
+            margin-left: 7.6vw;
+            margin-top: 3.2vw;
+          }
+
+          & ul {
+            display: grid;
+            row-gap: 1.6vw;
+            width: 38vw;
+
+            @include respond-to('phone') {
+              width: calc(100% - 8.8vw);
+              row-gap: 2.4vw;
+            }
+
+            & li {
+              display: flex;
+              column-gap: 1.07vw;
+              font-size: 1.6vw;
+              font-family: ArialRoundedMTBold;
+              line-height: 1.73vw;
+
+              @include respond-to('phone') {
+                line-height: 3.73vw;
+                column-gap: 2.13vw;
+                font-size: 3.2vw;
+              }
+
+              &::before {
+                content: '';
+                display: flex;
+                width: 1.6vw;
+                height: 1.6vw;
+                background: center / cover no-repeat url('@/assets/image/location.png');
+
+                @include respond-to('phone') {
+                  width: 3.2vw;
+                  height: 3.2vw;
+                }
+              }
             }
           }
         }
@@ -595,11 +667,15 @@ const addrList = [
     }
   }
 
-  .store-list {
+  .enquiry-list {
     padding: 0 8.8vw;
     margin-top: -6.67vw;
 
-    .store-list__inner {
+    @include respond-to('phone') {
+      margin-top: -5.4vw;
+    }
+
+    .enquiry-list__inner {
       display: flex;
       flex-direction: column;
       row-gap: 3.2vw;
@@ -608,24 +684,35 @@ const addrList = [
         overflow-x: hidden;
         display: flex;
         justify-content: space-between;
+        align-items: center;
         padding: 3.2vw;
         background-color: #fff;
-        box-shadow: 0 3px 8px 0 rgba(38, 37, 21, 0.08);
-        border-radius: 2px;
+        box-shadow: 0 0.53vw 1.07vw 0 rgba(38, 37, 21, 0.08);
+        border-radius: 0.4vw;
 
         .item-left {
           flex: 1;
           display: flex;
           flex-direction: column;
           justify-content: space-between;
+          row-gap: 1.6vw;
 
           .txt {
+            display: grid;
             font-size: 2.67vw;
             font-family: ArialRoundedMTBold;
 
+            @include respond-to('phone') {
+              font-size: 3.73vw;
+            }
+
             .item-title {
               line-height: 2.13vw;
-              white-space: nowrap;
+              // white-space: nowrap;
+
+              @include respond-to('phone') {
+                line-height: 3.73vw;
+              }
             }
             .item-sub-title {
               font-family: 'PingFangSC-Semibold', 'PingFang SC';
@@ -633,6 +720,10 @@ const addrList = [
               color: #ffcc00;
               line-height: 2.13vw;
               margin-top: 2.13vw;
+
+              @include respond-to('phone') {
+                line-height: 3.73vw;
+              }
             }
             .item-desc {
               font-size: 2.13vw;
@@ -640,7 +731,8 @@ const addrList = [
               margin-top: 2.13vw;
 
               @include respond-to('phone') {
-                line-height: 2.8vw;
+                line-height: 3.73vw;
+                font-size: 3.2vw;
               }
             }
           }
@@ -654,6 +746,12 @@ const addrList = [
             font-weight: 500;
             line-height: 2.13vw;
             cursor: pointer;
+
+            @include respond-to('phone') {
+              height: 7.4vw;
+              font-size: 3.2vw;
+              line-height: 4.27vw;
+            }
           }
         }
         .item-right {
@@ -668,13 +766,12 @@ const addrList = [
       }
     }
   }
-  .store-top-bg {
+  .enquiry-top-bg {
     width: 100%;
     height: 0;
     border-left: 20vw solid transparent;
     border-right: 20vw solid transparent;
     border-top: 13.33vw solid rgba(124, 202, 201, 1);
-    margin-top: 8vw;
 
     .enquiry-title {
       display: flex;
@@ -685,9 +782,14 @@ const addrList = [
       font-family: Copperplate;
       line-height: 3.2vw;
       -webkit-text-stroke: 0 #000000;
+
+      @include respond-to('phone') {
+        font-size: 4.8vw;
+        line-height: 4.8vw;
+      }
     }
   }
-  .store-bottom-bg {
+  .enquiry-bottom-bg {
     width: 100%;
     height: 0;
     border-left: 20vw solid transparent;
