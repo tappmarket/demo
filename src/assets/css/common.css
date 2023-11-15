@@ -10,7 +10,7 @@ body {
   scroll-behavior: smooth;
 }
 body {
-  font-family: PingFangSC-Regular, Roboto, 'Helvetica Neue', Helvetica, Tahoma, Arial,
+  font-family: 'PingFangSC-Regular', Roboto, 'Helvetica Neue', Helvetica, Tahoma, Arial,
     'PingFang SC-Light', 'Microsoft YaHei';
   margin: 0;
   background-color: #fff;

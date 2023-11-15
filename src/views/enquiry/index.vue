@@ -81,6 +81,7 @@ function onSubmit(data) {
         border: 4px solid #000000;
 
         .desc {
+          padding: 0 2.13vw;
           font-size: 3.07vw;
           font-family: ArialRoundedMTBold;
           line-height: 3.6vw;

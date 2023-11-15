@@ -103,19 +103,21 @@ const addrList = [
   /* NSW */
   [
     'Shop 45/1 Dixon St, Sydney NSW 2000',
-'22 Tung Hop St, Waterloo NSW 2017',
-'2/59 John St, Cabramatta NSW 2166',
-'Ground Floor, 71 Burwood Rd, Burwood NSW 2134',
-'Shop 3B/7 Magdalene Terrace, Wolli Greek NSW 2205',
-'Shop 5/1 Glen St, Eastwood NSW 2122',
-'338 Victoria Ave, Chatswood NSW 2067',
-'434 Cross St & Park Rd, Hurstville NSW 2220'
+    '22 Tung Hop St, Waterloo NSW 2017',
+    '2/59 John St, Cabramatta NSW 2166',
+    'Ground Floor, 71 Burwood Rd, Burwood NSW 2134',
+    'Shop 3B/7 Magdalene Terrace, Wolli Greek NSW 2205',
+    'Shop 5/1 Glen St, Eastwood NSW 2122',
+    '338 Victoria Ave, Chatswood NSW 2067',
+    '434 Cross St & Park Rd, Hurstville NSW 2220'
   ],
   /* South Australia */
   ['12 Rundle Mall, Adelaide SA 5000'],
   /* Western Australia */
-  ['Middle of, Shop 42/188 Newcastle Street, Washing Ln, Perth WA 6000',
-'FC111, Westfield Carousel Shopping Centre, 1382 Albany Hwy, Cannington WA 6107'],
+  [
+    'Middle of, Shop 42/188 Newcastle Street, Washing Ln, Perth WA 6000',
+    'FC111, Westfield Carousel Shopping Centre, 1382 Albany Hwy, Cannington WA 6107'
+  ],
   /* Victoria */
   ['270 Swanston St, Melbourne VIC 3000'],
   /* Queensland */
@@ -123,11 +125,13 @@ const addrList = [
   /* Tasmania */
   ['48 Melville St, Hobart TAS 7000'],
   /* NT */
-  ['Shop GD 127A, Casuarina Square, 247 Trower Rd, Casuarina NT 0810',
-'Shop R09A/ The Gateway Shopping Centre, Corner of Stuart Highway, Roystonea',
-'Avenue and Yarrawonga Road, Palmerston, Darwin NT 0830'],
-/* ACT */
-['G04/39 London Cct, Canberra ACT 2601']
+  [
+    'Shop GD 127A, Casuarina Square, 247 Trower Rd, Casuarina NT 0810',
+    'Shop R09A/ The Gateway Shopping Centre, Corner of Stuart Highway, Roystonea',
+    'Avenue and Yarrawonga Road, Palmerston, Darwin NT 0830'
+  ],
+  /* ACT */
+  ['G04/39 London Cct, Canberra ACT 2601']
 ];
 </script>
 
@@ -137,7 +141,9 @@ const addrList = [
 
     <!-- products -->
     <div id="products" class="products">
-      <div class="title">PRODUCTS</div>
+      <div class="title">
+        <img src="@/assets/image/producs-title.png" alt="producs-title.png" loading="lazy" />
+      </div>
       <!-- <div class="swiper"> -->
       <swiper :modules="[Navigation]" navigation>
         <swiper-slide class="swiper-slide" v-for="item in 2" :key="item">
@@ -177,7 +183,9 @@ const addrList = [
 
     <!-- about us -->
     <div class="about">
-      <div class="title">ABOUT US</div>
+      <div class="title">
+        <img src="@/assets/image/about-title.png" alt="about-title.png" loading="lazy" />
+      </div>
       <div class="about__inner">
         <div class="left">
           <span class="title">Brand Introduction</span>
@@ -219,7 +227,9 @@ const addrList = [
 
     <!-- stores -->
     <div id="stores" class="stores">
-      <div class="title">STORES</div>
+      <div class="title">
+        <img src="@/assets/image/stores-title.png" alt="stores-title.png" loading="lazy" />
+      </div>
       <div class="store__wrap">
         <div class="store-img">
           <ul class="store-img__inner">
@@ -297,10 +307,14 @@ const addrList = [
     .title {
       text-align: center;
       margin-bottom: 6.6667vw;
-      font-size: 5.3333vw;
-      font-family: Copperplate;
-      line-height: 5.3333vw;
-      -webkit-text-stroke: 0 #000000;
+
+      img {
+        width: 26.67vw;
+
+        @include respond-to('phone') {
+          width: 37.33vw;
+        }
+      }
     }
 
     .swiper {
@@ -389,11 +403,15 @@ const addrList = [
 
     .title {
       text-align: center;
-      margin-bottom: 6.13vw;
-      font-size: 5.33vw;
-      font-family: Copperplate;
-      line-height: 5.33vw;
-      -webkit-text-stroke: 0 #000000;
+      margin-bottom: 6.6667vw;
+
+      img {
+        width: 26.67vw;
+
+        @include respond-to('phone') {
+          width: 37.33vw;
+        }
+      }
     }
 
     .about__inner {
@@ -414,6 +432,7 @@ const addrList = [
         z-index: 1;
 
         .title {
+          font-family: Krungthep;
           font-size: 2.4vw;
           line-height: 3.6vw;
 
@@ -477,11 +496,15 @@ const addrList = [
 
     .title {
       text-align: center;
-      margin-bottom: 6.13vw;
-      font-size: 5.33vw;
-      font-family: Copperplate;
-      line-height: 5.33vw;
-      -webkit-text-stroke: 0 #000000;
+      margin-bottom: 6.6667vw;
+
+      img {
+        width: 26.67vw;
+
+        @include respond-to('phone') {
+          width: 37.33vw;
+        }
+      }
     }
 
     .store__wrap {
@@ -553,7 +576,7 @@ const addrList = [
 
             .state-left__inner {
               width: 100%;
-              padding: 3.2vw 2.4vw 3.2vw 8.8vw;
+              padding: 3.2vw 4.27vw 3.2vw 8.8vw;
               transform-origin: center left;
               transform: rotateY(-16deg);
 
@@ -563,18 +586,19 @@ const addrList = [
 
               .state {
                 font-size: 3.07vw;
-                font-family: Copperplate;
-                line-height: 3.2vw;
+                font-family: Krungthep;
+                line-height: 4vw;
                 -webkit-text-stroke: 0 #000000;
 
                 @include respond-to('phone') {
-                  font-size: 3.73vw;
+                  font-size: 4vw;
                 }
               }
               .list {
                 display: grid;
                 row-gap: 1.6vw;
                 margin-top: 1.6vw;
+                margin-bottom: 1.6vw;
                 font-size: 1.87vw;
                 font-family: ArialRoundedMTBold;
                 line-height: 2.13vw;
@@ -652,7 +676,7 @@ const addrList = [
               column-gap: 1.07vw;
               font-size: 1.6vw;
               font-family: ArialRoundedMTBold;
-              line-height: 1.73vw;
+              line-height: 1.87vw;
 
               @include respond-to('phone') {
                 line-height: 3.73vw;
@@ -712,7 +736,7 @@ const addrList = [
           .txt {
             display: grid;
             font-size: 2.67vw;
-            font-family: ArialRoundedMTBold;
+            font-family: Krungthep;
 
             @include respond-to('phone') {
               font-size: 3.73vw;
@@ -727,7 +751,6 @@ const addrList = [
               }
             }
             .item-sub-title {
-              font-family: 'PingFangSC-Semibold', 'PingFang SC';
               font-weight: 600;
               color: #ffcc00;
               line-height: 2.13vw;
@@ -738,12 +761,13 @@ const addrList = [
               }
             }
             .item-desc {
-              font-size: 2.13vw;
-              line-height: 2.13vw;
+              font-family: ArialRoundedMTBold;
+              font-size: 1.6vw;
+              line-height: 1.73vw;
               margin-top: 2.13vw;
 
               @include respond-to('phone') {
-                line-height: 3.73vw;
+                line-height: 3.47vw;
                 font-size: 3.2vw;
               }
             }
@@ -754,15 +778,15 @@ const addrList = [
             background: #fff000;
             border-radius: 2px;
             font-size: 1.6vw;
-            font-family: 'PingFangSC-Medium', 'PingFang SC';
+            font-family: Krungthep;
             font-weight: 500;
-            line-height: 2.13vw;
+            line-height: 2vw;
             cursor: pointer;
 
             @include respond-to('phone') {
               height: 7.4vw;
               font-size: 3.2vw;
-              line-height: 4.27vw;
+              line-height: 4vw;
             }
           }
         }
