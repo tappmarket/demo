@@ -35,15 +35,7 @@ function backTop() {
       />
     </div>
     <div class="open-time">
-      <div class="title">OPEN TIME</div>
-      <ul class="open-time__inner">
-        <li>Monday 7am-5pm</li>
-        <li>Tuesday 7am-5pm</li>
-        <li>Wednesday 7am-5pm</li>
-        <li>Friday 7am-5pm</li>
-        <li>Saturday 7am-5pm</li>
-        <li>Sunday 7am-5pm</li>
-      </ul>
+
       <div class="footer-bottom">
         <div class="filings">Two Peck © 2009-2023 | All Rights Reserved</div>
       </div>
