@@ -23,9 +23,7 @@ export default defineConfig({
       '@': resolve(__dirname, 'src')
     }
   },
-  server: {
-    host: '192.168.1.3'
-  },
+
   css: {
     preprocessorOptions: {
       scss: {
