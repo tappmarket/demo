@@ -12,18 +12,18 @@ defineOptions({
 
 // 产品图片
 let productList = [
-  'PlumSweetPotatoFries.jpg',
-  'CrispyCalamari.jpg',
-  'FriedKingOysterMushroom.jpg',
-  'CrispyChickenNuggets.jpg',
-  'GoldenThreadRollwithCondensedMilk.jpg'
+  { img: 'PlumSweetPotatoFries.jpg', txt: 'Plum Sweet Potato Fries' },
+  { img: 'CrispyCalamari.jpg', txt: 'Crispy Calamari' },
+  { img: 'FriedKingOysterMushroom.jpg', txt: 'Fried King Oyster Mushroom' },
+  { img: 'CrispyChickenNuggets.jpg', txt: 'Crispy Chicken Nuggets' },
+  { img: 'GoldenThreadRollwithCondensedMilk.jpg', txt: 'Golden Thread Roll with Condensed Milk' }
 ];
 let productList2 = [
-  'CrispyBonelessCutlet.jpg',
-  'FriedOreoCookies.jpg',
-  'FriedGreenBean.jpg',
-  'FriedChickenSoftBone.jpg',
-  'SignatureCrispyChickenCutlet.jpg'
+  { img: 'CrispyBonelessCutlet.jpg', txt: 'Crispy Boneless Cutl' },
+  { img: 'FriedOreoCookies.jpg', txt: 'Fried Oreo Cookies' },
+  { img: 'FriedGreenBean.jpg', txt: 'Fried Green Bean' },
+  { img: 'FriedChickenSoftBone.jpg', txt: 'Fried Chicken Soft Bone' },
+  { img: 'SignatureCrispyChickenCutlet.jpg', txt: 'Signature Crispy Chicken Cutlet' }
 ];
 productList = formatData(productList);
 productList2 = formatData(productList2);
@@ -160,6 +160,7 @@ const addrList = [
                   :preview-src-list="previewList"
                   @show="onPreview(product.img)"
                 ></el-image>
+                <div class="img-txt">{{ product.txt }}</div>
               </li>
             </ul>
             <ul class="product-list2">
@@ -174,6 +175,7 @@ const addrList = [
                   :preview-src-list="previewList"
                   @show="onPreview(product.img)"
                 ></el-image>
+                <div class="img-txt">{{ product.txt }}</div>
               </li>
             </ul>
           </div>
@@ -353,6 +355,7 @@ const addrList = [
 
       .item {
         overflow: hidden;
+        position: relative;
         display: flex;
 
         &::-webkit-scrollbar {
@@ -382,6 +385,24 @@ const addrList = [
         }
         &:nth-of-type(5) {
           grid-area: img5;
+        }
+
+        .img-txt {
+          position: absolute;
+          bottom: 0;
+          display: flex;
+          align-items: flex-end;
+          width: 100%;
+          height: 7.73vw;
+          padding: 0 1.6vw 1.6vw;
+          font-size: 1.87vw;
+          font-family: ArialRoundedMTBold;
+          color: #ffffff;
+          background: linear-gradient(
+            to bottom,
+            rgba(33, 33, 33, 0) 0%,
+            rgba(56, 56, 56, 0.75) 100%
+          );
         }
       }
     }

@@ -18,7 +18,6 @@ const form = reactive({
 
 function uploadFile(e) {
   const file = e.target.files[0];
-  console.log('file => ', file);
 }
 
 // 提交
