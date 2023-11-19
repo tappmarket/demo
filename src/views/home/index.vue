@@ -366,8 +366,9 @@ const addrList = [
           width: 100%;
           transition: transform 0.5s;
           cursor: pointer;
-
-          &:hover {
+        }
+        &:hover {
+          :deep(.el-image) {
             transform: scale(1.15);
           }
         }
