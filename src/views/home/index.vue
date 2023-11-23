@@ -266,7 +266,7 @@ const addrList = [
     <!-- enquiry -->
     <div id="enquiry">
       <div class="enquiry-top-bg">
-        <div class="enquiry-title">Enquiry</div>
+        <div class="enquiry-title"></div>
       </div>
       <div class="enquiry-list">
         <ul class="enquiry-list__inner">
