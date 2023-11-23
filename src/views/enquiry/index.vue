@@ -1,5 +1,5 @@
 <script setup>
-import { shallowRef, defineAsyncComponent } from 'vue';
+import { shallowRef, defineAsyncComponent, computed } from 'vue';
 import { useRoute } from 'vue-router';
 
 defineOptions({
@@ -19,6 +19,13 @@ Object.entries(components).find(([key, val]) => {
   }
 });
 
+const getUrl = (img) => new URL(`../../assets/image/${img}`, import.meta.url).href;
+
+const bannerList = ['franceise_banner.jpg', 'customer_banner.jpg', 'join_banner.jpg'].map((img) =>
+  getUrl(img)
+);
+const currBanner = computed(() => bannerList.find((img) => img.includes(componentName)));
+
 // 提交
 function onSubmit(data) {
   console.log('submit => ', data);
@@ -28,7 +35,7 @@ function onSubmit(data) {
 <template>
   <div class="page-content">
     <!-- banner -->
-    <img src="@/assets/image/banner2.png" style="width: 100%" alt="banner2" loading="lazy" />
+    <img :src="currBanner" style="width: 100%" alt="banner" loading="lazy" />
     <img
       src="@/assets/image/triangle-arrow.png"
       class="down-arrow"
