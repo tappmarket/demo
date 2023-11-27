@@ -24,7 +24,7 @@ storeImgs = formatData(storeImgs);
 let enquiryList = [
   {
     title: 'Two Peck Crispy Chicken (Australia)',
-    subTitle: 'Franchise Employee Helpline',
+    subTitle: 'Employee Helpline',
     desc: `If you have any questions or concerns regarding employment or wage payment practices at a Two Peck Crispy Chicken store`,
     img: 'img1.jpg',
     to: '/enquiry/franceise'
@@ -32,7 +32,7 @@ let enquiryList = [
   {
     title: 'Two Peck Crispy Chicken (Australia)',
     subTitle: 'Customer Service Helpline',
-    desc: `If you have any questions or concerns regarding Two Peck Crispy Chicken (Australia) Franchise Store's products and`,
+    desc: `If you have any questions or concerns regarding Two Peck Crispy Chicken (Australia) Franchise Store's products and services, please submit a claim.`,
     img: 'img4.jpg',
     to: '/enquiry/customer'
   },
@@ -84,7 +84,8 @@ const addrList = [
     'Shop 3B/7 Magdalene Terrace, Wolli Greek NSW 2205',
     'Shop 5/1 Glen St, Eastwood NSW 2122',
     '338 Victoria Ave, Chatswood NSW 2067',
-    '434 Cross St & Park Rd, Hurstville NSW 2220'
+    '434 Cross St & Park Rd, Hurstville NSW 2220',
+    'Shop 185a, Westfield Mount Druitt, NSW 2770',
   ],
   /* South Australia */
   ['12 Rundle Mall, Adelaide SA 5000'],
@@ -94,7 +95,9 @@ const addrList = [
     'FC111, Westfield Carousel Shopping Centre, 1382 Albany Hwy, Cannington WA 6107'
   ],
   /* Victoria */
-  ['270 Swanston St, Melbourne VIC 3000'],
+  ['270 Swanston St, Melbourne VIC 3000',
+  '616 Station Street, Box Hill, VIC 3128'
+],
   /* Queensland */
   [],
   /* Tasmania */
