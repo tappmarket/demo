@@ -5,17 +5,23 @@ import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import { productList, productList2, storeImgs, enquiryList, stateList, addrList } from './data';
+import { productList, storeImgs, enquiryList, stateList, addrList } from './data';
 
 defineOptions({
   name: 'HomePage'
 });
 
+const swiperActiveIndex = ref(0);
+function onSlideChange(swiper) {
+  swiperActiveIndex.value = swiper.activeIndex;
+}
 const previewImg = ref('');
 // 产品图片预览
-const previewList = [...productList, ...productList2].map((item) => item.img);
+const previewList = computed(() =>
+  productList[swiperActiveIndex.value].flat().map((item) => item.img)
+);
 const previewIndex = computed(() => {
-  const index = previewList.findIndex((item) => item === previewImg.value);
+  const index = previewList.value.findIndex((item) => item === previewImg.value);
   return index === -1 ? 0 : index;
 });
 function onPreview(img) {
@@ -36,11 +42,11 @@ const stateIndex = ref(0);
         <img src="@/assets/image/producs-title.png" alt="producs-title.png" loading="lazy" />
       </div>
       <!-- <div class="swiper"> -->
-      <swiper :modules="[Navigation]" navigation>
-        <swiper-slide class="swiper-slide" v-for="item in 1" :key="item">
+      <swiper :modules="[Navigation]" navigation auto-height @slide-change="onSlideChange">
+        <swiper-slide class="swiper-slide" v-for="(list, index) in productList" :key="index">
           <div class="product-list__wrap">
             <ul class="product-list">
-              <li class="item" v-for="product in productList" :key="product.alt">
+              <li class="item" v-for="product in list[0]" :key="product.alt">
                 <el-image
                   preview-teleported
                   hide-on-click-modal
@@ -54,8 +60,8 @@ const stateIndex = ref(0);
                 <div class="img-txt">{{ product.txt }}</div>
               </li>
             </ul>
-            <ul class="product-list2">
-              <li class="item" v-for="product in productList2" :key="product.alt">
+            <ul class="product-list2" v-if="list[1].length > 0">
+              <li class="item" v-for="product in list[1]" :key="product.alt">
                 <el-image
                   preview-teleported
                   hide-on-click-modal
@@ -136,7 +142,9 @@ const stateIndex = ref(0);
           </div>
           <div class="state-right">
             <ul>
-              <li v-for="addr in addrList[stateIndex]" :key="addr">{{ addr }}</li>
+              <li v-for="item in addrList[stateIndex]" :key="item.addr">
+                <a class="right-addr" :href="item.link">{{ item.addr }}</a>
+              </li>
             </ul>
           </div>
         </div>
@@ -228,8 +236,7 @@ const stateIndex = ref(0);
         'img2 img2 img4 img4 img4'
         'img2 img2 img5 img5 img5'
         'img3 img3 img5 img5 img5'
-        'img3 img3 img5 img5 img5'
-        '. . . . .';
+        'img3 img3 img5 img5 img5';
       grid-template-rows: repeat(6, 8.8vw);
       gap: 1.6vw;
 
@@ -267,6 +274,21 @@ const stateIndex = ref(0);
         &:nth-of-type(5) {
           grid-area: img5;
         }
+        &:nth-of-type(6) {
+          grid-area: img6;
+        }
+        &:nth-of-type(7) {
+          grid-area: img7;
+        }
+        &:nth-of-type(8) {
+          grid-area: img8;
+        }
+        &:nth-of-type(9) {
+          grid-area: img9;
+        }
+        &:nth-of-type(10) {
+          grid-area: img10;
+        }
 
         .img-txt {
           position: absolute;
@@ -296,6 +318,7 @@ const stateIndex = ref(0);
         'img1 img1 img5 img5 img5 img5'
         'img2 img2 img5 img5 img5 img5'
         'img2 img2 img5 img5 img5 img5';
+      margin-top: 1.6vw;
     }
   }
 
@@ -573,12 +596,16 @@ const stateIndex = ref(0);
               row-gap: 2.4vw;
             }
 
-            & li {
+            .right-addr {
               display: flex;
               column-gap: 1.07vw;
               font-size: 1.6vw;
               font-family: ArialRoundedMTBold;
               line-height: 1.87vw;
+
+              &:hover {
+                color: #fff000;
+              }
 
               @include respond-to('phone') {
                 line-height: 3.73vw;
