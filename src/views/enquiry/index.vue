@@ -1,6 +1,7 @@
 <script setup>
 import { shallowRef, defineAsyncComponent, computed } from 'vue';
 import { useRoute } from 'vue-router';
+import { enquiryList } from '../home/data';
 
 defineOptions({
   name: 'EnquiryPage'
@@ -25,6 +26,9 @@ const bannerList = ['franceise_banner.jpg', 'customer_banner.jpg', 'join_banner.
   getUrl(img)
 );
 const currBanner = computed(() => bannerList.find((img) => img.includes(componentName)));
+const enquiryDesc = computed(
+  () => enquiryList.find((item) => item.to.includes(componentName)).desc
+);
 
 // 提交
 function onSubmit(data) {
@@ -46,10 +50,7 @@ function onSubmit(data) {
     <div class="form-layout">
       <div class="form-layout__inner">
         <div class="form-wrap">
-          <div class="desc">
-            If you have any questions or concerns regarding employment or wage payment practices at
-            a Two Peck Crispy Chicken store, please submit a claim.
-          </div>
+          <div class="desc">{{ enquiryDesc }}</div>
           <component :is="currComponent" @submit="onSubmit"></component>
         </div>
       </div>
