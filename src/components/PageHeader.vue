@@ -241,7 +241,7 @@ watch(menuStatus, (status) => {
           border-top: 0.13vw solid rgba(0, 0, 0, 0.5);
 
           &.active {
-            background-color: rgba(0, 0, 0, 0.1);
+            background-color: #fff000;
           }
         }
       }

@@ -1,20 +1,28 @@
 // 产品图片
 let productList = [
-  { img: 'PlumSweetPotatoFries.jpg', txt: 'Plum Sweet Potato Fries' },
-  { img: 'CrispyCalamari.jpg', txt: 'Crispy Calamari' },
-  { img: 'FriedKingOysterMushroom.jpg', txt: 'Fried King Oyster Mushroom' },
-  { img: 'CrispyChickenNuggets.jpg', txt: 'Crispy Chicken Nuggets' },
-  { img: 'GoldenThreadRollwithCondensedMilk.jpg', txt: 'Golden Thread Roll with Condensed Milk' }
+  // 第一页
+  [
+    { img: 'PlumSweetPotatoFries.jpg', txt: 'Plum Sweet Potato Fries' },
+    { img: 'CrispyCalamari.jpg', txt: 'Crispy Calamari' },
+    { img: 'FriedKingOysterMushroom.jpg', txt: 'Fried King Oyster Mushroom' },
+    { img: 'CrispyChickenNuggets.jpg', txt: 'Crispy Chicken Nuggets' },
+    { img: 'GoldenThreadRollwithCondensedMilk.jpg', txt: 'Golden Thread Roll with Condensed Milk' },
+    { img: 'CrispyBonelessCutlet.jpg', txt: 'Crispy Boneless Cutl' },
+    { img: 'FriedOreoCookies.jpg', txt: 'Fried Oreo Cookies' },
+    { img: 'FriedGreenBean.jpg', txt: 'Fried Green Bean' },
+    { img: 'FriedChickenSoftBone.jpg', txt: 'Fried Chicken Soft Bone' },
+    { img: 'SignatureCrispyChickenCutlet.jpg', txt: 'Signature Crispy Chicken Cutlet' }
+  ],
+  // 第二页
+  []
 ];
-let productList2 = [
-  { img: 'CrispyBonelessCutlet.jpg', txt: 'Crispy Boneless Cutl' },
-  { img: 'FriedOreoCookies.jpg', txt: 'Fried Oreo Cookies' },
-  { img: 'FriedGreenBean.jpg', txt: 'Fried Green Bean' },
-  { img: 'FriedChickenSoftBone.jpg', txt: 'Fried Chicken Soft Bone' },
-  { img: 'SignatureCrispyChickenCutlet.jpg', txt: 'Signature Crispy Chicken Cutlet' }
-];
-productList = formatData(productList);
-productList2 = formatData(productList2);
+productList = productList
+  .filter((item) => Boolean(item.length))
+  .map((item) => {
+    let list = formatData(item);
+    const product1 = list.splice(0, 5);
+    return [product1, list];
+  });
 
 // 商店图片
 let storeImgs = ['store1.png', 'store2.png', 'store3.png'];
@@ -77,36 +85,95 @@ const stateList = [
 const addrList = [
   /* NSW */
   [
-    'Shop 45/1 Dixon St, Sydney NSW 2000',
-    '22 Tung Hop St, Waterloo NSW 2017',
-    '2/59 John St, Cabramatta NSW 2166',
-    'Ground Floor, 71 Burwood Rd, Burwood NSW 2134',
-    'Shop 3B/7 Magdalene Terrace, Wolli Greek NSW 2205',
-    'Shop 5/1 Glen St, Eastwood NSW 2122',
-    '338 Victoria Ave, Chatswood NSW 2067',
-    '434 Cross St & Park Rd, Hurstville NSW 2220'
+    {
+      addr: 'Shop 45/1 Dixon St, Sydney NSW 2000',
+      link: 'https://www.baidu.com'
+    },
+    {
+      addr: '22 Tung Hop St, Waterloo NSW 2017',
+      link: ''
+    },
+    {
+      addr: '2/59 John St, Cabramatta NSW 2166',
+      link: ''
+    },
+    {
+      addr: 'Ground Floor, 71 Burwood Rd, Burwood NSW 2134',
+      link: ''
+    },
+    {
+      addr: 'Shop 3B/7 Magdalene Terrace, Wolli Greek NSW 2205',
+      link: ''
+    },
+    {
+      addr: 'Shop 5/1 Glen St, Eastwood NSW 2122',
+      link: ''
+    },
+    {
+      addr: '338 Victoria Ave, Chatswood NSW 2067',
+      link: ''
+    },
+    {
+      addr: '434 Cross St & Park Rd, Hurstville NSW 2220',
+      link: ''
+    }
   ],
   /* South Australia */
-  ['12 Rundle Mall, Adelaide SA 5000'],
+  [
+    {
+      addr: '12 Rundle Mall, Adelaide SA 5000',
+      link: ''
+    }
+  ],
   /* Western Australia */
   [
-    'Middle of, Shop 42/188 Newcastle Street, Washing Ln, Perth WA 6000',
-    'FC111, Westfield Carousel Shopping Centre, 1382 Albany Hwy, Cannington WA 6107'
+    {
+      addr: 'Middle of, Shop 42/188 Newcastle Street, Washing Ln, Perth WA 6000',
+      link: ''
+    },
+    {
+      addr: 'FC111, Westfield Carousel Shopping Centre, 1382 Albany Hwy, Cannington WA 6107',
+      link: ''
+    }
   ],
   /* Victoria */
-  ['270 Swanston St, Melbourne VIC 3000'],
+  [
+    {
+      addr: '270 Swanston St, Melbourne VIC 3000',
+      link: ''
+    }
+  ],
   /* Queensland */
   [],
   /* Tasmania */
-  ['48 Melville St, Hobart TAS 7000'],
+  [
+    {
+      addr: '48 Melville St, Hobart TAS 7000',
+      link: ''
+    }
+  ],
   /* NT */
   [
-    'Shop GD 127A, Casuarina Square, 247 Trower Rd, Casuarina NT 0810',
-    'Shop R09A/ The Gateway Shopping Centre, Corner of Stuart Highway, Roystonea',
-    'Avenue and Yarrawonga Road, Palmerston, Darwin NT 0830'
+    {
+      addr: 'Shop GD 127A, Casuarina Square, 247 Trower Rd, Casuarina NT 0810',
+      link: ''
+    },
+    {
+      addr: 'Shop R09A/ The Gateway Shopping Centre, Corner of Stuart Highway, Roystonea',
+      link: ''
+    },
+    {
+      addr: 'Avenue and Yarrawonga Road, Palmerston, Darwin NT 0830',
+      link: ''
+    }
   ],
   /* ACT */
-  ['G04/39 London Cct, Canberra ACT 2601']
+  [
+    {
+      addr: 'G04/39 London Cct, Canberra ACT 2601',
+      link: ''
+    }
+  ]
 ];
 
-export { productList, productList2, storeImgs, enquiryList, stateList, addrList };
+export { productList, storeImgs, enquiryList, stateList, addrList };
