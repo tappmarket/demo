@@ -32,7 +32,7 @@ storeImgs = formatData(storeImgs);
 let enquiryList = [
   {
     title: 'Two Peck Crispy Chicken (Australia)',
-    subTitle: 'Franchise Employee Helpline',
+    subTitle: 'Employee Helpline',
     desc: `If you have any questions or concerns regarding employment or wage payment practices at a Two Peck Crispy Chicken store`,
     img: 'img1.jpg',
     to: '/enquiry/franceise'
@@ -40,7 +40,7 @@ let enquiryList = [
   {
     title: 'Two Peck Crispy Chicken (Australia)',
     subTitle: 'Customer Service Helpline',
-    desc: `If you have any questions or concerns regarding Two Peck Crispy Chicken (Australia) Franchise Store's products and`,
+    desc: `If you have any questions or concerns regarding Two Peck Crispy Chicken (Australia) Franchise Store's products and services, please submit a claim.`,
     img: 'img4.jpg',
     to: '/enquiry/customer'
   },
@@ -116,6 +116,10 @@ const addrList = [
     {
       addr: '434 Cross St & Park Rd, Hurstville NSW 2220',
       link: ''
+    },
+    {
+      addr: 'Shop 185a, Westfield Mount Druitt, NSW 2770',
+      link: ''
     }
   ],
   /* South Australia */
@@ -140,6 +144,10 @@ const addrList = [
   [
     {
       addr: '270 Swanston St, Melbourne VIC 3000',
+      link: ''
+    },
+    {
+      addr: '616 Station Street, Box Hill, VIC 3128',
       link: ''
     }
   ],

@@ -90,29 +90,18 @@ const stateIndex = ref(0);
           <span class="title">Brand Introduction</span>
           <ul class="paragraph">
             <li>
-              The Two Peck Crispy Chicken started form SiPing St, Taipei City in 2005, famous in its
+              The Two Peck Crispy Chicken started form SiPing St, Taipei City in 2005, famous in its crispy outside and juicy inside. To deliver the same original crispy chicken, Two Peck
             </li>
-            <li>
-              crispy outside and juicy inside. To deliver the same original crispy chicken, Two Peck
-            </li>
-            <li>Crispy Chicken adopts an integrated standard operating procedure from raw</li>
-            <li>
-              materials to final products so that every piece of food ends up as a delicious dainty
-            </li>
-            <li>for our customers.</li>
+
+            <li>Crispy Chicken adopts an integrated standard operating procedure from raw materials to final products so that every piece of food ends up as a delicious dainty for our customers.</li>
           </ul>
         </div>
         <div class="right">
           <span class="title">Secrets of Delicious</span>
           <ul class="paragraph">
-            <li>• Carefully select fresh chicken products, specially prepared marinating</li>
-            <li>products to make sure the chicken products are very well marinated</li>
+            <li>• Carefully select fresh chicken products, specially prepared marinating products to make sure the chicken products are very well marinated</li>
             <li>
-              • Carefully select high-quality frying oil to ensure the food quality and present
-            </li>
-            <li>the Crispy Chicken a beautiful golden yellow.</li>
-            <li>• Brand Specially prepared Crispy Frying Powder to seal the chicken juice,</li>
-            <li>which is the secret of crispy skin and juicy meat.</li>
+              • Carefully select high-quality frying oil to ensure the food quality and present the crispy chicken a beautiful golden yellow, which is the secret of crispy skin and juicy meat.</li>
             <li>• Always freshly made upon ordering, no pre-frying.</li>
           </ul>
         </div>
@@ -165,7 +154,7 @@ const stateIndex = ref(0);
     <!-- enquiry -->
     <div id="enquiry">
       <div class="enquiry-top-bg">
-        <div class="enquiry-title">Enquiry</div>
+        <div class="enquiry-title"></div>
       </div>
       <div class="enquiry-list">
         <ul class="enquiry-list__inner">
