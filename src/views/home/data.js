@@ -7,7 +7,7 @@ let productList = [
     { img: 'FriedKingOysterMushroom.jpg', txt: 'Fried King Oyster Mushroom' },
     { img: 'CrispyChickenNuggets.jpg', txt: 'Crispy Chicken Nuggets' },
     { img: 'GoldenThreadRollwithCondensedMilk.jpg', txt: 'Golden Thread Roll with Condensed Milk' },
-    { img: 'CrispyBonelessCutlet.jpg', txt: 'Crispy Boneless Cutl' },
+    { img: 'CrispyBonelessCutlet.jpg', txt: 'Crispy Boneless Cutlet' },
     { img: 'FriedOreoCookies.jpg', txt: 'Fried Oreo Cookies' },
     { img: 'FriedGreenBean.jpg', txt: 'Fried Green Bean' },
     { img: 'FriedChickenSoftBone.jpg', txt: 'Fried Chicken Soft Bone' },

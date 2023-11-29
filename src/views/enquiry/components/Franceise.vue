@@ -54,13 +54,7 @@ function onSubmit() {
       <input class="form-inp" name="storeName" placeholder="Store Name" v-model="form.storeName" />
       <input class="form-inp" name="claim" placeholder="Claim" v-model="form.claim" />
     </div>
-    <div class="row flex-col">
-      <span class="label-txt">Are you a current, or former employee</span>
-      <el-radio-group v-model="form.employee">
-        <el-radio label="current">Current</el-radio>
-        <el-radio label="former">Former</el-radio>
-      </el-radio-group>
-    </div>
+
     <div class="row flex-col">
       <span class="label-txt">Attachment</span>
       <label class="inp-label" for="select-file">
