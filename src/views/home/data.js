@@ -47,7 +47,7 @@ let enquiryList = [
   {
     title: 'Two Peck Crispy Chicken (Australia)',
     subTitle: 'Join The Two Peck Crispy Chicken (Australia) Family',
-    desc: `If you have any questions about join the Two Peck Crispy Chicken store`,
+    desc: `Register Your Interest`,
     img: 'img3.jpg',
     to: '/enquiry/join'
   }
@@ -86,8 +86,12 @@ const addrList = [
   /* NSW */
   [
     {
+      addr: '6 Walker St, Rhodes NSW 2138',
+      link: ''
+    },
+    {
       addr: 'Shop 45/1 Dixon St, Sydney NSW 2000',
-      link: 'https://www.baidu.com'
+      link: ''
     },
     {
       addr: '22 Tung Hop St, Waterloo NSW 2017',

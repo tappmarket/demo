@@ -55,14 +55,14 @@ function onSubmit() {
     <div class="row flex-col">
       <span class="label-txt">Attachment</span>
       <label class="inp-label" for="select-file">
-        <span class="label-text">选择文件</span>
-        <div class="select-file">未选择任何文件</div>
+        <span class="label-text">Select File</span>
+        <div class="select-file"></div>
         <input
           hidden
           id="select-file"
           type="file"
           name="file"
-          placeholder="未选择任何文件"
+          placeholder=""
           @change="uploadFile"
         />
       </label>
