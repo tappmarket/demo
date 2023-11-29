@@ -44,9 +44,14 @@ function onSubmit() {
         v-model="form.phone"
       />
     </div>
+    <span class="label-txt">Where you want to open store?</span>
     <div class="row">
+      
       <input class="form-inp" name="postCode" placeholder="PostCode" v-model="form.postCode" />
       <input class="form-inp" name="state" placeholder="State" v-model="form.state" />
+
+    </div>
+    <div class="row">
       <input
         class="form-inp"
         name="reason"
