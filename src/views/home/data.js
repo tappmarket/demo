@@ -40,7 +40,7 @@ let enquiryList = [
   {
     title: 'Two Peck Crispy Chicken (Australia)',
     subTitle: 'Customer Service Helpline',
-    desc: `If you have any questions or concerns regarding Two Peck Crispy Chicken (Australia) Franchise Store's products and services, please submit a claim.`,
+    desc: `If you have any questions or concerns regarding Two Peck Crispy Chicken (Australia) Store's products and services, please submit a claim.`,
     img: 'img4.jpg',
     to: '/enquiry/customer'
   },
@@ -171,11 +171,7 @@ const addrList = [
       link: ''
     },
     {
-      addr: 'Shop R09A/ The Gateway Shopping Centre, Corner of Stuart Highway, Roystonea',
-      link: ''
-    },
-    {
-      addr: 'Avenue and Yarrawonga Road, Palmerston, Darwin NT 0830',
+      addr: 'Shop R09A/ The Gateway Shopping Centre, Corner of Stuart Highway, Roystonea Avenue and Yarrawonga Road, Palmerston, Darwin NT 0830',
       link: ''
     }
   ],
