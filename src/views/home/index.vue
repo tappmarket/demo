@@ -5,7 +5,15 @@ import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import { productList, storeImgs, enquiryList, stateList, addrList } from './data';
+import {
+  productList,
+  storeImgs,
+  aboutLeftParagraphs,
+  aboutRightParagraphs,
+  enquiryList,
+  stateList,
+  addrList
+} from './data';
 
 defineOptions({
   name: 'HomePage'
@@ -86,24 +94,22 @@ const stateIndex = ref(0);
         <img src="@/assets/image/about-title.png" alt="about-title.png" loading="lazy" />
       </div>
       <div class="about__inner">
-        <div class="left">
-          <span class="title">Brand Introduction</span>
-          <ul class="paragraph">
-            <li>
-              The Two Peck Crispy Chicken started form SiPing St, Taipei City in 2005, famous in its crispy outside and juicy inside. To deliver the same original crispy chicken, Two Peck
-            </li>
-
-            <li>Crispy Chicken adopts an integrated standard operating procedure from raw materials to final products so that every piece of food ends up as a delicious dainty for our customers.</li>
-          </ul>
+        <div class="about-bg">
+          <img src="../../assets/image/img2.jpg" alt="about-bg" loading="lazy" />
         </div>
-        <div class="right">
-          <span class="title">Secrets of Delicious</span>
-          <ul class="paragraph">
-            <li>• Carefully select fresh chicken products, specially prepared marinating products to make sure the chicken products are very well marinated</li>
-            <li>
-              • Carefully select high-quality frying oil to ensure the food quality and present the crispy chicken a beautiful golden yellow, which is the secret of crispy skin and juicy meat.</li>
-            <li>• Always freshly made upon ordering, no pre-frying.</li>
-          </ul>
+        <div class="paragraph-layout">
+          <div class="left">
+            <span class="title">Brand Introduction</span>
+            <ul class="paragraph">
+              <li v-for="(p, index) in aboutLeftParagraphs" :key="index">{{ p }}</li>
+            </ul>
+          </div>
+          <div class="right">
+            <span class="title">Secrets of Delicious</span>
+            <ul class="paragraph">
+              <li v-for="(p, index) in aboutRightParagraphs" :key="index">{{ p }}</li>
+            </ul>
+          </div>
         </div>
         <ul class="img__wrap">
           <li class="img"></li>
@@ -323,8 +329,9 @@ const stateIndex = ref(0);
   }
 
   .about {
-    padding: 0 8.8vw 13.33vw;
+    padding: 0 8.8vw;
     margin-top: 12vw;
+    margin-bottom: 24vw;
 
     .title {
       text-align: center;
@@ -341,70 +348,95 @@ const stateIndex = ref(0);
 
     .about__inner {
       position: relative;
-      padding: 0 8.53vw;
-      width: calc(100% - 8.53vw);
-      height: 96vw;
-      margin: 0 auto;
-      background: center / contain no-repeat url('@/assets/image/img2.jpg');
+      display: flex;
+      justify-content: center;
+      width: 100%;
       font-family: ArialRoundedMTBold;
 
-      .left,
-      .right {
-        position: absolute;
-        background: #fff000;
-        border: 0.4vw solid #000000;
-        padding: 3.2vw 2.43vw 2.13vw 2.13vw;
-        z-index: 1;
+      .about-bg {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
 
-        .title {
-          font-family: Krungthep;
-          font-size: 2.4vw;
-          line-height: 3.6vw;
-
-          @include respond-to('phone') {
-            font-size: 3.2vw;
-          }
-        }
-        .paragraph {
-          display: flex;
-          flex-direction: column;
-          row-gap: 1.6vw;
-          margin-top: 1.87vw;
-          font-size: 1.6vw;
-          line-height: 2.13vw;
-
-          @include respond-to('phone') {
-            font-size: 2.67vw;
-            line-height: 2.67vw;
-          }
+        img {
+          width: calc(100% - 11.73vw);
         }
       }
 
-      .left {
+      .paragraph-layout {
+        position: absolute;
         top: 0;
         left: 0;
-        width: 35.33vw;
-        margin-left: -5.8vw;
-        transform: translateY(21.3vw);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
 
-        @include respond-to('phone') {
+        .left,
+        .right {
+          position: absolute;
+          width: 33.33vw;
+          background: #fff000;
+          border: 0.4vw solid #000000;
+          padding: 3.2vw 2.43vw 2.13vw 2.13vw;
+
+          .title {
+            font-family: Krungthep;
+            font-size: 2.4vw;
+            line-height: 3.6vw;
+
+            @include respond-to('phone') {
+              font-size: 3.2vw;
+            }
+          }
+          .paragraph {
+            overflow-x: hidden;
+            overflow-y: scroll;
+            display: flex;
+            flex-direction: column;
+            max-height: 40vw;
+            row-gap: 1.6vw;
+            margin-top: 1.87vw;
+            font-size: 1.6vw;
+            line-height: 2.13vw;
+
+            &::-webkit-scrollbar {
+              display: none;
+            }
+
+            @include respond-to('phone') {
+              font-size: 2.67vw;
+              line-height: 2.67vw;
+            }
+          }
+        }
+
+        .left {
+          top: 0;
+          left: 0;
           transform: translateY(13.33vw);
+
+          @include respond-to('phone') {
+            transform: translateY(13.33vw);
+          }
+        }
+        .right {
+          bottom: 0;
+          right: 0;
+          transform: translateY(11.73vw);
         }
       }
-      .right {
-        bottom: 0;
-        right: 0;
-        width: 40.8vw;
-        margin-right: -5.8vw;
-        transform: translateY(8.67vw);
-      }
+
       .img__wrap {
         position: absolute;
         bottom: 0;
-        left: 0;
+        left: 5.6vw;
         display: flex;
         column-gap: 4.27vw;
-        transform: translateY(5vw);
+        transform: translateY(8.53vw);
 
         .img {
           width: 5.6vw;
