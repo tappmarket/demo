@@ -395,6 +395,8 @@ const stateIndex = ref(0);
           .paragraph {
             overflow-x: hidden;
             overflow-y: scroll;
+            -moz-appearance: none;
+            scrollbar-width: none;
             display: flex;
             flex-direction: column;
             max-height: 40vw;
@@ -410,6 +412,8 @@ const stateIndex = ref(0);
             @include respond-to('phone') {
               font-size: 2.67vw;
               line-height: 2.67vw;
+              -moz-appearance: unset;
+              scrollbar-width: unset;
             }
           }
         }
