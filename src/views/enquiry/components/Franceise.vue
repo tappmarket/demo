@@ -30,8 +30,9 @@ function onSubmit() {
 </script>
 
 <template>
-  <form class="form">
-    <div class="row">
+  <form class="form" method="POST" action="https://formsubmit.co/3092f2bb5f6de000e4e72112184b5a5a" enctype="multipart/form-data">
+    <input type="hidden" id="formId" name="formId" value="Employee Helpline">
+      <div class="row">
       <input class="form-inp" name="name" placeholder="Name" v-model="form.name" />
       <input
         class="form-inp"
@@ -78,7 +79,7 @@ function onSubmit() {
         v-model="form.message"
       ></textarea>
     </div>
-    <button type="submit" class="submit" @click.prevent="onSubmit">Send Message</button>
+    <button type="submit" class="submit" @click="onSubmit">Send Message</button>
   </form>
 </template>
 

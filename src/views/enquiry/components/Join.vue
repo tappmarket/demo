@@ -24,7 +24,8 @@ function onSubmit() {
 </script>
 
 <template>
-  <form class="form">
+  <form class="form" method="POST" action="https://formsubmit.co/3092f2bb5f6de000e4e72112184b5a5a">
+    <input type="hidden" id="formId" name="formId" value="Join The Two Peck Crispy Chicken (Australia) Family">
     <div class="row">
       <input class="form-inp" name="name" placeholder="Name" v-model="form.name" />
       <input
@@ -67,7 +68,7 @@ function onSubmit() {
         v-model="form.enquiry"
       ></textarea>
     </div>
-    <button type="submit" class="submit" @click.prevent="onSubmit">Send Message</button>
+    <button type="submit" class="submit" @click="onSubmit">Send Message</button>
   </form>
 </template>
 
