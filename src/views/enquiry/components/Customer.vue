@@ -28,7 +28,7 @@ function onSubmit() {
 </script>
 
 <template>
-  <form class="form" method="POST" action="https://formsubmit.co/3092f2bb5f6de000e4e72112184b5a5a" enctype="multipart/form-data">
+  <form class="form" method="POST" action="https://formsubmit.co/cc363f8980a2fcf38e19c31a78d1a019" enctype="multipart/form-data">
     <input type="hidden" id="formId" name="formId" value="Customer Service Helpline">
     <div class="row">
       <input class="form-inp" name="name" placeholder="Name" v-model="form.name" />
