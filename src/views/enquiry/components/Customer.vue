@@ -1,82 +1,60 @@
 <script setup>
-import { reactive, toRaw } from 'vue';
+import { ref, onBeforeUnmount } from 'vue';
+import { ElButton } from 'element-plus';
 
 defineOptions({
   name: 'EnquiryCustomer'
 });
 const emit = defineEmits(['submit']);
 
-const form = reactive({
-  name: '',
-  email: '',
-  phone: '',
-  storeName: '',
-  claim: '',
-  message: '',
-  file: ''
-});
-
+const file = ref();
 function uploadFile(e) {
-  const file = e.target.files[0];
+  /** @type {File} */
+  const _file = e.target.files[0];
+  file.value = _file;
 }
 
-// 提交
+const loading = ref(false);
+onBeforeUnmount(() => {
+  loading.value = false;
+});
+
 function onSubmit() {
-  const data = toRaw(form);
-  emit('submit', data);
+  loading.value = true;
+  emit('submit', 'enquiry-customer');
 }
 </script>
 
 <template>
-  <form class="form" method="POST" action="https://formsubmit.co/cc363f8980a2fcf38e19c31a78d1a019" enctype="multipart/form-data">
-    <input type="hidden" id="formId" name="formId" value="Customer Service Helpline">
+  <form
+    name="enquiry-customer"
+    class="form"
+    method="POST"
+    action="https://formsubmit.co/cc363f8980a2fcf38e19c31a78d1a019"
+    enctype="multipart/form-data"
+  >
+    <input type="hidden" id="formId" name="formId" value="Customer Service Helpline" />
     <div class="row">
-      <input class="form-inp" name="name" placeholder="Name" v-model="form.name" />
-      <input
-        class="form-inp"
-        type="email"
-        name="email"
-        placeholder="Email"
-        inputmode="email"
-        v-model="form.email"
-      />
-      <input
-        class="form-inp"
-        type="tel"
-        name="tel"
-        placeholder="Phone"
-        inputmode="tel"
-        v-model="form.phone"
-      />
+      <input class="form-inp" name="name" placeholder="Name" />
+      <input class="form-inp" type="email" name="email" placeholder="Email" inputmode="email" />
+      <input class="form-inp" type="tel" name="tel" placeholder="Phone" inputmode="tel" />
     </div>
     <div class="row">
-      <input class="form-inp" name="storeName" placeholder="Store Name" v-model="form.storeName" />
-      <input class="form-inp" name="claim" placeholder="Claim" v-model="form.claim" />
+      <input class="form-inp" name="storeName" placeholder="Store Name" />
+      <input class="form-inp" name="claim" placeholder="Claim" />
     </div>
     <div class="row flex-col">
       <span class="label-txt">Attachment</span>
       <label class="inp-label" for="select-file">
         <span class="label-text">Select File</span>
-        <div class="select-file"></div>
-        <input
-          hidden
-          id="select-file"
-          type="file"
-          name="file"
-          placeholder=""
-          @change="uploadFile"
-        />
+        <div class="select-file">{{ file?.name }}</div>
+        <input hidden id="select-file" type="file" name="file" @change="uploadFile" />
       </label>
     </div>
     <div class="row">
-      <textarea
-        class="form-inp message"
-        name="message"
-        placeholder="Message"
-        v-model="form.message"
-      ></textarea>
+      <textarea class="form-inp message" name="message" placeholder="Message"></textarea>
     </div>
-    <button type="submit" class="submit" @click="onSubmit">Send Message</button>
+    <ElButton :loading="loading" class="submit" @click="onSubmit">Send Message</ElButton>
   </form>
 </template>
 

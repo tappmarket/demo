@@ -30,9 +30,9 @@ const enquiryDesc = computed(
   () => enquiryList.find((item) => item.to.includes(componentName)).desc
 );
 
-// 提交
-function onSubmit(data) {
-  console.log('submit => ', data);
+function onSubmit(formName) {
+  const form = document.forms.namedItem(formName);
+  form.submit();
 }
 </script>
 
