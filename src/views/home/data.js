@@ -184,4 +184,22 @@ const addrList = [
   ]
 ];
 
-export { productList, storeImgs, enquiryList, stateList, addrList };
+const aboutLeftParagraphs = [
+  'The Two Peck Crispy Chicken started form SiPing St, Taipei City in 2005, famous in its crispy outside and juicy inside. To deliver the same original crispy chicken, Two Peck',
+  'Crispy Chicken adopts an integrated standard operating procedure from raw materials to final products so that every piece of food ends up as a delicious dainty for our customers.'
+];
+const aboutRightParagraphs = [
+  '• Carefully select fresh chicken products, specially prepared marinating products to make sure the chicken products are very well marinated',
+  '• Carefully select high-quality frying oil to ensure the food quality and present the crispy chicken a beautiful golden yellow, which is the secret of crispy skin and juicy meat.',
+  '• Always freshly made upon ordering, no pre-frying.'
+];
+
+export {
+  productList,
+  storeImgs,
+  aboutLeftParagraphs,
+  aboutRightParagraphs,
+  enquiryList,
+  stateList,
+  addrList
+};
