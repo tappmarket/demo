@@ -24,7 +24,7 @@ function onSubmit() {
 </script>
 
 <template>
-  <form class="form" method="POST" action="https://formsubmit.co/3092f2bb5f6de000e4e72112184b5a5a">
+  <form class="form" method="POST" action="https://formsubmit.co/info@twopac.com.au">
     <input type="hidden" id="formId" name="formId" value="Join The Two Peck Crispy Chicken (Australia) Family">
     <div class="row">
       <input class="form-inp" name="name" placeholder="Name" v-model="form.name" />
