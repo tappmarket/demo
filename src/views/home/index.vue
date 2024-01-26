@@ -95,7 +95,7 @@ const stateIndex = ref(0);
       </div>
       <div class="about__inner">
         <div class="about-bg">
-          <img src="../../assets/image/img2.jpg" alt="about-bg" loading="lazy" />
+          <img src="../../assets/image/img2.png" alt="about-bg" loading="lazy" />
         </div>
         <div class="paragraph-layout">
           <div class="left">
@@ -111,11 +111,6 @@ const stateIndex = ref(0);
             </ul>
           </div>
         </div>
-        <ul class="img__wrap">
-          <li class="img"></li>
-          <li class="img"></li>
-          <li class="img"></li>
-        </ul>
       </div>
     </div>
 
@@ -332,6 +327,10 @@ const stateIndex = ref(0);
     margin-top: 12vw;
     margin-bottom: 24vw;
 
+    @include respond-to('phone') {
+      padding: 0 4vw;
+    }
+
     .title {
       text-align: center;
       margin-bottom: 6.6667vw;
@@ -351,6 +350,10 @@ const stateIndex = ref(0);
       justify-content: center;
       width: 100%;
       font-family: ArialRoundedMTBold;
+
+      @include respond-to('phone') {
+        transform: translateY(8.53vw);
+      }
 
       .about-bg {
         display: flex;
@@ -384,7 +387,13 @@ const stateIndex = ref(0);
           width: 33.33vw;
           background: #fff000;
           border: 0.4vw solid #000000;
-          padding: 3.2vw 2.43vw 2.13vw 2.13vw;
+          padding: 1.6vw;
+
+          @include respond-to('phone') {
+            width: 52vw;
+            border-width: 0.8vw;
+            padding: 2.13vw;
+          }
 
           @include respond-to('phone') {
             width: 44%;
@@ -396,7 +405,7 @@ const stateIndex = ref(0);
             line-height: 3.6vw;
 
             @include respond-to('phone') {
-              font-size: 3.2vw;
+              font-size: 4vw;
             }
           }
           .paragraph {
@@ -453,18 +462,11 @@ const stateIndex = ref(0);
         }
       }
 
-      .img__wrap {
-        position: absolute;
-        bottom: 0;
-        left: 5.6vw;
-        display: flex;
-        column-gap: 4.27vw;
-        transform: translateY(8.53vw);
-
-        .img {
-          width: 5.6vw;
-          height: 5.6vw;
-          background: center / contain no-repeat url('@/assets/image/leg.jpg');
+          @include respond-to('phone') {
+            .paragraph {
+              max-height: 56vw;
+            }
+          }
         }
       }
     }
