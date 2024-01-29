@@ -470,7 +470,7 @@ const stateIndex = ref(0);
         }
       }
     }
-  }
+
 
   .stores {
     padding-top: 6.67vw;
@@ -819,5 +819,5 @@ const stateIndex = ref(0);
     border-bottom: 13.33vw solid rgba(124, 202, 201, 1);
     margin-top: -8.4vw;
   }
-}
+
 </style>
