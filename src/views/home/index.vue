@@ -324,6 +324,7 @@ const stateIndex = ref(0);
   }
 
   .about {
+    padding: 0 8.8vw;
     margin-top: 12vw;
     margin-bottom: 24vw;
 
@@ -365,7 +366,7 @@ const stateIndex = ref(0);
           width: calc(100% - 11.73vw);
 
           @include respond-to('phone') {
-            width: 100%;
+            width: calc(100% - 5.87vw);
           }
         }
       }
@@ -393,10 +394,6 @@ const stateIndex = ref(0);
             width: 52vw;
             border-width: 0.8vw;
             padding: 2.13vw;
-          }
-
-          @include respond-to('phone') {
-            width: 44%;
           }
 
           .title {
@@ -427,10 +424,8 @@ const stateIndex = ref(0);
             }
 
             @include respond-to('phone') {
-              min-height: 74vw;
-              max-height: 74vw;
               font-size: 3.2vw;
-              line-height: 3.73vw;
+              line-height: 3.2vw;
               appearance: unset;
               -moz-appearance: unset;
               scrollbar-width: unset;
@@ -444,23 +439,16 @@ const stateIndex = ref(0);
           transform: translateY(13.33vw);
 
           @include respond-to('phone') {
-            top: unset;
-            left: 4vw;
-            bottom: 0;
-            transform: translateY(-4vw);
+            transform: translateY(-8.27vw);
+            .paragraph {
+              max-height: 48vw;
+            }
           }
         }
         .right {
           bottom: 0;
           right: 0;
-          transform: translateY(11.73vw);
-
-          @include respond-to('phone') {
-            right: 4vw;
-            transform: translateY(-4vw);
-          }
-        }
-      }
+          transform: translateY(8.27vw);
 
           @include respond-to('phone') {
             .paragraph {
@@ -470,7 +458,7 @@ const stateIndex = ref(0);
         }
       }
     }
-
+  }
 
   .stores {
     padding-top: 6.67vw;
@@ -819,5 +807,5 @@ const stateIndex = ref(0);
     border-bottom: 13.33vw solid rgba(124, 202, 201, 1);
     margin-top: -8.4vw;
   }
-
+}
 </style>

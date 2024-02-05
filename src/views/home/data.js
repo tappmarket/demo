@@ -41,7 +41,7 @@ let enquiryList = [
     title: 'Two Peck Crispy Chicken (Australia)',
     subTitle: 'Customer Service Helpline',
     desc: `If you have any questions or concerns regarding Two Peck Crispy Chicken (Australia) Store's products and services, please submit a claim.`,
-    img: 'customer.jpg',
+    img: 'img4.jpg',
     to: '/enquiry/customer'
   },
   {
