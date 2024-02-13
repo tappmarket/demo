@@ -95,7 +95,8 @@ const stateIndex = ref(0);
       </div>
       <div class="about__inner">
         <div class="about-bg">
-          <img src="../../assets/image/img2.png" alt="about-bg" loading="lazy" />
+          <img src="../../assets/image/img2.png" class="mobile" alt="about-bg" loading="lazy" />
+          <img src="../../assets/image/about_bg.jpg" class="pc" alt="about-bg" loading="lazy" />
         </div>
         <div class="paragraph-layout">
           <div class="left">
@@ -111,6 +112,11 @@ const stateIndex = ref(0);
             </ul>
           </div>
         </div>
+        <ul class="img__wrap">
+          <li class="img"></li>
+          <li class="img"></li>
+          <li class="img"></li>
+        </ul>
       </div>
     </div>
 
@@ -365,8 +371,19 @@ const stateIndex = ref(0);
         img {
           width: calc(100% - 11.73vw);
 
+          &.mobile {
+            display: none;
+          }
+
           @include respond-to('phone') {
             width: calc(100% - 5.87vw);
+
+            &.mobile {
+              display: unset;
+            }
+            &.pc {
+              display: none;
+            }
           }
         }
       }
@@ -385,7 +402,7 @@ const stateIndex = ref(0);
         .left,
         .right {
           position: absolute;
-          width: 33.33vw;
+          width: 42vw;
           background: #fff000;
           border: 0.4vw solid #000000;
           padding: 1.6vw;
@@ -455,6 +472,24 @@ const stateIndex = ref(0);
               max-height: 56vw;
             }
           }
+        }
+      }
+      .img__wrap {
+        position: absolute;
+        bottom: 0;
+        left: 5.6vw;
+        display: flex;
+        column-gap: 4.27vw;
+        transform: translateY(8.53vw);
+
+        @include respond-to('phone') {
+          display: none;
+        }
+
+        .img {
+          width: 5.6vw;
+          height: 5.6vw;
+          background: center / contain no-repeat url('@/assets/image/leg.jpg');
         }
       }
     }
