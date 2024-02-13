@@ -423,29 +423,16 @@ const stateIndex = ref(0);
             }
           }
           .paragraph {
-            overflow-x: hidden;
-            overflow-y: scroll;
-            appearance: none;
-            -moz-appearance: none;
-            scrollbar-width: none;
             display: flex;
             flex-direction: column;
-            max-height: 40vw;
             row-gap: 1.6vw;
             margin-top: 1.87vw;
             font-size: 1.6vw;
             line-height: 2.13vw;
 
-            &::-webkit-scrollbar {
-              display: none;
-            }
-
             @include respond-to('phone') {
               font-size: 3.2vw;
               line-height: 3.2vw;
-              appearance: unset;
-              -moz-appearance: unset;
-              scrollbar-width: unset;
             }
           }
         }
@@ -457,21 +444,12 @@ const stateIndex = ref(0);
 
           @include respond-to('phone') {
             transform: translateY(-8.27vw);
-            .paragraph {
-              max-height: 48vw;
-            }
           }
         }
         .right {
           bottom: 0;
           right: 0;
           transform: translateY(8.27vw);
-
-          @include respond-to('phone') {
-            .paragraph {
-              max-height: 56vw;
-            }
-          }
         }
       }
       .img__wrap {
@@ -480,7 +458,7 @@ const stateIndex = ref(0);
         left: 5.6vw;
         display: flex;
         column-gap: 4.27vw;
-        transform: translateY(8.53vw);
+        transform: translateY(8.27vw);
 
         @include respond-to('phone') {
           display: none;
