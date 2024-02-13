@@ -37,7 +37,7 @@ function backTop() {
     <div class="open-time">
 
       <div class="footer-bottom">
-        <div class="filings">Two Peck Australia I All Right Reserved</div>
+        <div class="filings">Two Peck Australia, All Right Reserved</div>
       </div>
     </div>
   </footer>
